@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCashIdentityProject.EntityLayer", "EasyCashIdentityProject.EntityLayer\EasyCashIdentityProject.EntityLayer.csproj", "{A5A97DB5-057B-4BA7-8094-5CB77A90D18D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCashIdentityProject.EntityLayer", "EasyCashIdentityProject.EntityLayer\EasyCashIdentityProject.EntityLayer.csproj", "{A5A97DB5-057B-4BA7-8094-5CB77A90D18D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCashIdentityProject.DataAccessLayer", "EasyCashIdentityProject.DataAccessLayer\EasyCashIdentityProject.DataAccessLayer.csproj", "{BBEEC00E-1427-40CC-9D13-D08A81FD9774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCashIdentityProject.DataAccessLayer", "EasyCashIdentityProject.DataAccessLayer\EasyCashIdentityProject.DataAccessLayer.csproj", "{BBEEC00E-1427-40CC-9D13-D08A81FD9774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCashIdentityProject.BusinessLayer", "EasyCashIdentityProject.BusinessLayer\EasyCashIdentityProject.BusinessLayer.csproj", "{C2398EDC-083A-4158-9557-1806FFCF72EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCashIdentityProject.BusinessLayer", "EasyCashIdentityProject.BusinessLayer\EasyCashIdentityProject.BusinessLayer.csproj", "{C2398EDC-083A-4158-9557-1806FFCF72EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCashIdentityProject.DtoLayer", "EasyCashIdentityProject.DtoLayer\EasyCashIdentityProject.DtoLayer.csproj", "{1B400A43-EA59-48E9-B3A9-FCB25E05D507}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCashIdentityProject.DtoLayer", "EasyCashIdentityProject.DtoLayer\EasyCashIdentityProject.DtoLayer.csproj", "{1B400A43-EA59-48E9-B3A9-FCB25E05D507}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCashIdentityProject.presentationLayer", "EasyCashIdentityProject.presentationLayer\EasyCashIdentityProject.presentationLayer.csproj", "{7916CFFD-AAF3-4A1F-B199-A9E7B7750421}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCashIdentityProject.presentationLayer", "EasyCashIdentityProject.presentationLayer\EasyCashIdentityProject.presentationLayer.csproj", "{7916CFFD-AAF3-4A1F-B199-A9E7B7750421}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

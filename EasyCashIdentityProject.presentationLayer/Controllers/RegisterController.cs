@@ -1,7 +1,9 @@
 ﻿using EasyCashIdentityProject.DtoLayer.Dtos.AppUserDtos;
 using EasyCashIdentityProject.EntityLayer.Concrete;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 
 namespace EasyCashIdentityProject.presentationLayer.Controllers
 {
@@ -25,6 +27,9 @@ namespace EasyCashIdentityProject.presentationLayer.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+				Random random= new Random();
+				int code;
+				code = random.Next(100000, 1000000);
 				AppUser appUser = new AppUser()
 				{
 					UserName = appUserRegisterDto.UserName,
@@ -33,11 +38,33 @@ namespace EasyCashIdentityProject.presentationLayer.Controllers
 					Email = appUserRegisterDto.Email,
 					City = "aaa",
 					District = "bbb",
-					ImageUrl = "ccc"
+					ImageUrl = "ccc",
+					ComfirmCode = code
 				};
 				var result = await _userManager.CreateAsync(appUser, appUserRegisterDto.Password);
 				if (result.Succeeded)
 				{
+					MimeMessage mimeMessage = new MimeMessage();
+					MailboxAddress mailboxAddressFrom = new MailboxAddress("Easy Cash Admin", "celilbtc@gmail.com");
+					MailboxAddress mailboxAddressTo = new MailboxAddress("User", appUser.Email);
+
+					mimeMessage.From.Add(mailboxAddressFrom);
+					mimeMessage.To.Add(mailboxAddressTo);
+
+					var bodyBuilder = new BodyBuilder();
+					bodyBuilder.TextBody = "Comfir code for register: " + code;
+					mimeMessage.Body = bodyBuilder.ToMessageBody();
+
+					mimeMessage.Subject = "Comfirm code Easy Cash";
+
+					SmtpClient client= new SmtpClient();
+                    client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+
+                    client.Authenticate("celilbtc@gmail.com", "jqkx jnas rokr bker");
+					client.Send(mimeMessage);
+					client.Disconnect(true);
+					TempData["Mail"] = appUserRegisterDto.Email;
+
 					return RedirectToAction("Index", "ComfirmMail");
 				}
 				else
