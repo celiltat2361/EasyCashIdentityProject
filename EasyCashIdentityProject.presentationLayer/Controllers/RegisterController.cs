@@ -60,7 +60,7 @@ namespace EasyCashIdentityProject.presentationLayer.Controllers
 					SmtpClient client= new SmtpClient();
                     client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
 
-                    client.Authenticate("celilbtc@gmail.com", "jqkx jnas rokr bker");
+                    client.Authenticate("celilbtc@gmail.com", "chye ebmv qzws lbsy");
 					client.Send(mimeMessage);
 					client.Disconnect(true);
 					TempData["Mail"] = appUserRegisterDto.Email;
