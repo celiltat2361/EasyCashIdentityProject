@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,22 @@ namespace EasyCashIdentityProject.DataAccessLayer.Concrete
 			optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;initial catalog=EasyCashDb;integrated Security=true");
 		}
 		public DbSet<CustomerAccount> CustomerAccounts { get; set; }
-		public DbSet<CustomerAccountProcess> CustomerAccountProcesse { get; set; }
-	}
+		public DbSet<CustomerAccountProcess> CustomerAccountProcess { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+			builder.Entity<CustomerAccountProcess>()
+				.HasOne(x => x.SenderCustomer)
+				.WithMany(y => y.CustomerSender)
+				.HasForeignKey(z => z.SenderID)
+				.OnDelete(DeleteBehavior.ClientSetNull);
+
+			builder.Entity<CustomerAccountProcess>()
+				.HasOne(x => x.ReceiverCustomer)
+				.WithMany(y => y.CustomerReceiver)
+				.HasForeignKey(z => z.ReceiverID)
+				.OnDelete(DeleteBehavior.ClientSetNull);
+			base.OnModelCreating(builder);
+        }
+    }
 }
