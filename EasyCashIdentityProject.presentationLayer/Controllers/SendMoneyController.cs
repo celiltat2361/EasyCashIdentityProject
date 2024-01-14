@@ -20,8 +20,9 @@ namespace EasyCashIdentityProject.presentationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string mycurrency)
         {
+            ViewBag.currency = mycurrency;
             return View();
         }
         [HttpPost]
@@ -32,17 +33,17 @@ namespace EasyCashIdentityProject.presentationLayer.Controllers
             var receiverAccountNumberID = context.CustomerAccounts.Where(a => a.CustomerAccountNumber == sendMoneyForCustomerAccountProcessDto.RecieverAccountNumber)
                 .Select(b => b.CustomerAccountID).FirstOrDefault();
 
-            sendMoneyForCustomerAccountProcessDto.SenderID = user.Id;
-            sendMoneyForCustomerAccountProcessDto.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            sendMoneyForCustomerAccountProcessDto.ProcessType = "Pay";
-            sendMoneyForCustomerAccountProcessDto.ReceiverID = receiverAccountNumberID;
+            var senderAccountsNumberID = context.CustomerAccounts.Where(x => x.CustomerAccountCurrency == "TL").Where(y => y.AppUserID == user.Id)
+                .Select(z => z.CustomerAccountID).FirstOrDefault();
 
             var values = new CustomerAccountProcess();
             values.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            values.SenderID = 1;
+            values.SenderID = senderAccountsNumberID;
             values.ReceiverID = receiverAccountNumberID;
-            values.ProcessType = "Pay";
+            values.ProcessType = sendMoneyForCustomerAccountProcessDto.ProcessType;
             values.Amount = sendMoneyForCustomerAccountProcessDto.Amount;
+            values.Description= sendMoneyForCustomerAccountProcessDto.Description;
+            
             
             //context.CustomerAccountProcesse.Add(values);
             //context.SaveChanges();
@@ -51,5 +52,7 @@ namespace EasyCashIdentityProject.presentationLayer.Controllers
 
             return RedirectToAction("Index", "Deneme");
         }
+
+
     }
 }

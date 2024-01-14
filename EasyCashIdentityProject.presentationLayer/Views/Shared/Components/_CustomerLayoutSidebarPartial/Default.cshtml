@@ -34,10 +34,10 @@
                                 <li>
                                     <a><i class="fa fa-edit"></i>Account Transactions<span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="form.html">Money Transfer</a></li>
-                                            <li><a href="form_advanced.html">My Latest Transactions</a></li>
+                                            <li><a href="/SendMoney/Index/">Money Transfer</a></li>
+                                            <li><a href="/MyLastProcess/Index/">My Latest Transactions</a></li>
                                             <li><a href="form_validation.html">Money Transfer with QR</a></li>
-                                            <li><a href="form_wizards.html">Iban Information</a></li>
+                                            <li><a href="form_wizards.html">Share Iban Information</a></li>
                                             <li><a href="form_upload.html">FTransfer between my accounts</a></li>
                                             <li><a href="form_buttons.html">Mobile Transfer</a></li>
                                     </ul>
@@ -54,6 +54,15 @@
                                         <li><a href="glyphicons.html">Dolar Accounts</a></li>
                                         <li><a href="widgets.html">Euro Accounts</a></li>
         
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-rocket"></i>Money Transfer<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="TL">TL Transfer</a></li>
+                                        <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="Dolar">Dolar Transfer</a></li>
+                                        <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="Euro">Euro Transfer</a></li>
+                                        <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="Other">Other Transfer</a></li>
                                     </ul>
                                 </li>
                                 <li>

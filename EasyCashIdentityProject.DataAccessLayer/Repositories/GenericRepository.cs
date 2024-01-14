@@ -1,5 +1,6 @@
 ﻿using EasyCashIdentityProject.DataAccessLayer.Abstract;
 using EasyCashIdentityProject.DataAccessLayer.Concrete;
+using EasyCashIdentityProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,17 @@ namespace EasyCashIdentityProject.DataAccessLayer.Repositories
 			context.SaveChanges();
 		}
 
-		public void Update(T t)
+        public List<CustomerAccountProcess> MyLastProcess(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CustomerAccountProcess> MyLastProcess1(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(T t)
 		{
 			using var context = new Context();
 			context.Set<T>().Update(t);

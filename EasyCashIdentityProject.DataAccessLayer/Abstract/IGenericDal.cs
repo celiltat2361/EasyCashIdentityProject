@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyCashIdentityProject.EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace EasyCashIdentityProject.DataAccessLayer.Abstract
 		void Update(T t);
 		T GetByID(int id);
 		List<T> GetList();
-		
-	}
+        List<CustomerAccountProcess> MyLastProcess(int id);
+		List<CustomerAccountProcess> MyLastProcess1(int id);
+    }
 }

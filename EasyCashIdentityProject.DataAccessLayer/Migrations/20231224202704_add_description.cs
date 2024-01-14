@@ -4,13 +4,13 @@
 
 namespace EasyCashIdentityProject.DataAccessLayer.Migrations
 {
-    public partial class mig_CustomerAccountProcess_add_description : Migration
+    public partial class add_description : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "Description",
-                table: "CustomerAccountProcesse",
+                table: "CustomerAccountProcess",
                 type: "nvarchar(max)",
                 nullable: true,
                 defaultValue: "");
@@ -20,7 +20,7 @@ namespace EasyCashIdentityProject.DataAccessLayer.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "Description",
-                table: "CustomerAccountProcesse");
+                table: "CustomerAccountProcess");
         }
     }
 }
